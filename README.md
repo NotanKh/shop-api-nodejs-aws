@@ -1,0 +1,1 @@
+# shop-api-nodejs-aws
