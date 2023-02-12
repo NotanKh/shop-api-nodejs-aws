@@ -1,0 +1,10 @@
+import { APIGatewayProxyResult, APIGatewayProxyEvent } from "aws-lambda";
+import { formatJSONResponse } from "@libs/api-gateway";
+import { middyfy } from "@libs/lambda";
+import { getProductById } from "../../services/products";
+
+export const getProductByIdHandler = middyfy(async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    const productId = event.pathParameters.id;
+    const product = getProductById(productId);
+    return formatJSONResponse(product)
+})

@@ -1,0 +1,74 @@
+[
+  {
+    "count": 15,
+    "description": "Get up to speed with the latest features and techniques of the popular Angular framework and build dynamic web applications.",
+    "id": "c1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6",
+    "price": 29.99,
+    "title": "Angular 11: A Practical Guide",
+    "logo": "https://images-na.ssl-images-amazon.com/images/I/512bWQP6aZL._SX379_BO1,204,203,200_.jpg"
+  },
+  {
+    "count": 17,
+    "description": "Learn how to develop efficient and scalable applications using the latest version of Ruby on Rails.",
+    "id": "p1q2r3s4-t5u6-v7w8-x9y0-z1a2b3c4d5e6",
+    "price": 39.99,
+    "title": "Mastering Ruby on Rails 6",
+    "logo": "https://images-na.ssl-images-amazon.com/images/I/51Nofp8YpyL._SX404_BO1,204,203,200_.jpg"
+  },
+  {
+    "count": 23,
+    "description": "Get an in-depth understanding of the React library and build dynamic user interfaces for your web applications.",
+    "id": "f1g2h3i4-j5k6-l7m8-n9o0-p1q2r3s4t5u6",
+    "price": 24.99,
+    "title": "React: A Comprehensive Guide",
+    "logo": "https://images-na.ssl-images-amazon.com/images/I/51tGQfQq3mL._SX404_BO1,204,203,200_.jpg"
+  },
+  {
+    "count": 9,
+    "description": "Get a comprehensive understanding of machine learning algorithms and how to apply them in real-world projects.",
+    "id": "g1h2i3j4-k5l6-m7n8-o9p0-q1r2s3t4u5v6",
+    "price": 49.99,
+    "title": "Machine Learning for Beginners",
+    "logo": "https://images-na.ssl-images-amazon.com/images/I/51Fz8Wg%2BSvL._SX404_BO1,204,203,200_.jpg"
+  },
+  {
+    "count": 28,
+    "description": "Discover the power of functional programming and learn how to write clean and concise code using Python.",
+    "id": "h1i2j3k4-l5m6-n7o8-p9q0-r1s2t3u4v5w6",
+    "price": 29.99,
+    "title": "Functional Python Programming",
+    "logo": "https://images-na.ssl-images.com/images/I/51TGiP0ZBBL.SX379_BO1,204,203,200.jpg"
+  },
+  {
+    "count": 2,
+    "description": "Get hands-on experience with the popular Node.js framework and build fast, scalable and dynamic web applications.",
+    "id": "i1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6",
+    "price": 34.99,
+    "title": "Node.js: A Comprehensive Guide",
+    "logo": "https://images-na.ssl-images-amazon.com/images/I/51v8VYFZN-L._SX379_BO1,204,203,200_.jpg"
+  },
+  {
+    "count": 7,
+    "description": "Understand the basics of the Swift programming language and build robust iOS applications.",
+    "id": "j1k2l3m4-n5o6-p7q8-r9s0-t1u2v3w4x5y6",
+    "price": 39.99,
+    "title": "Swift: A Beginner's Guide",
+    "logo": "https://images-na.ssl-images-amazon.com/images/I/51zDUJg0U2L._SX379_BO1,204,203,200_.jpg"
+  },
+  {
+    "count": 18,
+    "description": "Get up to speed with the latest features of the PHP programming language and build dynamic web applications.",
+    "id": "k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6",
+    "price": 24.99,
+    "title": "PHP 7: A Comprehensive Guide",
+    "logo": "https://images-na.ssl-images-amazon.com/images/I/51q3rDllYRL._SX379_BO1,204,203,200_.jpg"
+  },
+  {
+    "count": 30,
+    "description": "Get an in-depth understanding of the latest features of the Java programming language and build robust applications.",
+    "id": "l1m2n3o4-p5q6-r7s8-t9u0-v1w2x3y4z5a6",
+    "price": 39.99,
+    "title": "Java 11: A Practical Guide",
+    "logo": "https://images-na.ssl-images-amazon.com/images/I/51u1OZlQhRL._SX404_BO1,204,203,200_.jpg"
+  }
+]
