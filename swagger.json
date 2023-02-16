@@ -1,0 +1,111 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Books shop AWS",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://fxy2x7emmd.execute-api.us-east-1.amazonaws.com/dev"
+    }
+  ],
+  "tags": [
+    {
+      "name": "products",
+      "description": "Products CRUD"
+    }
+  ],
+  "paths": {
+    "/product/available": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "operationId": "getProductsList",
+        "responses": {
+          "200": {
+            "description": "successfull operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/{productId}": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "operationId": "getProductById",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Id of product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successfull operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "item with this id not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "c1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"
+          },
+          "title": {
+            "type": "string",
+            "example": "Mastering Ruby on Rails 6"
+          },
+          "description": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string",
+            "example": "https://images-na.ssl-images-amazon.com/images/I/51Nofp8YpyL._SX404_BO1,204,203,200_.jpg"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int64",
+            "example": 15
+          },
+          "price": {
+            "type": "integer",
+            "format": "double",
+            "example": 23.99
+          }
+        }
+      }
+    }
+  }
+}

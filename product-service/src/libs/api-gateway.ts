@@ -5,12 +5,22 @@ type ValidatedAPIGatewayProxyEvent<S> = Omit<APIGatewayProxyEvent, 'body'> & { b
 export type ValidatedEventAPIGatewayProxyEvent<S> = Handler<ValidatedAPIGatewayProxyEvent<S>, APIGatewayProxyResult>
 
 export const formatJSONResponse = (response: Record<string, unknown>) => {
-  return {
+  return AddOriginHeaders({
     statusCode: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true,
-    },
     body: JSON.stringify(response)
+  })
+}
+
+const AddOriginHeaders = (response) => ({
+  ...response,
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
   }
+})
+
+export const formatErrorResponse = (statusCode: number = 500, message?: string) => {
+  const res = { statusCode, body: message ? JSON.stringify(message) : 'Something went wrong' };
+
+  return AddOriginHeaders(res)
 }
