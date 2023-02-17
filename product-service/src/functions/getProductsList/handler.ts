@@ -4,6 +4,6 @@ import { middyfy } from '@libs/lambda';
 import { getProductsList } from '../../services/products';
 
 export const main = middyfy(async (): Promise<APIGatewayProxyResult> => {
-  const productsList = getProductsList();
+  const productsList = await getProductsList();
   return formatJSONResponse(productsList);
 });
