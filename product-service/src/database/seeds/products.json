@@ -1,0 +1,166 @@
+{
+  "cloud_shop_products": [
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Get up to speed with the latest features and techniques of the popular Angular framework and build dynamic web applications."
+          },
+          "id": {
+            "S": "c1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"
+          },
+          "price": {
+            "N": "29.99"
+          },
+          "title": {
+            "S": "Angular 11: A Practical Guide"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Learn how to develop efficient and scalable applications using the latest version of Ruby on Rails."
+          },
+          "id": {
+            "S": "p1q2r3s4-t5u6-v7w8-x9y0-z1a2b3c4d5e6"
+          },
+          "price": {
+            "N": "39.99"
+          },
+          "title": {
+            "S": "Mastering Ruby on Rails 6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Get an in-depth understanding of the React library and build dynamic user interfaces for your web applications."
+          },
+          "id": {
+            "S": "f1g2h3i4-j5k6-l7m8-n9o0-p1q2r3s4t5u6"
+          },
+          "price": {
+            "N": "24.99"
+          },
+          "title": {
+            "S": "React: A Comprehensive Guide"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Get a comprehensive understanding of machine learning algorithms and how to apply them in real-world projects."
+          },
+          "id": {
+            "S": "g1h2i3j4-k5l6-m7n8-o9p0-q1r2s3t4u5v6"
+          },
+          "price": {
+            "N": "49.99"
+          },
+          "title": {
+            "S": "Machine Learning for Beginners"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Discover the power of functional programming and learn how to write clean and concise code using Python."
+          },
+          "id": {
+            "S": "h1i2j3k4-l5m6-n7o8-p9q0-r1s2t3u4v5w6"
+          },
+          "price": {
+            "N": "29.99"
+          },
+          "title": {
+            "S": "Functional Python Programming"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Get hands-on experience with the popular Node.js framework and build fast, scalable and dynamic web applications."
+          },
+          "id": {
+            "S": "i1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6"
+          },
+          "price": {
+            "N": "34.99"
+          },
+          "title": {
+            "S": "Node.js: A Comprehensive Guide"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Understand the basics of the Swift programming language and build robust iOS applications."
+          },
+          "id": {
+            "S": "j1k2l3m4-n5o6-p7q8-r9s0-t1u2v3w4x5y6"
+          },
+          "price": {
+            "N": "39.99"
+          },
+          "title": {
+            "S": "Swift: A Beginner's Guide"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Get up to speed with the latest features of the PHP programming language and build dynamic web applications."
+          },
+          "id": {
+            "S": "k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6"
+          },
+          "price": {
+            "N": "24.99"
+          },
+          "title": {
+            "S": "PHP 7: A Comprehensive Guide"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": {
+            "S": "Get an in-depth understanding of the latest features of the Java programming language and build robust applications."
+          },
+          "id": {
+            "S": "l1m2n3o4-p5q6-r7s8-t9u0-v1w2x3y4z5a6"
+          },
+          "price": {
+            "N": "39.99"
+          },
+          "title": {
+            "S": "Java 11: A Practical Guide"
+          }
+        }
+      }
+    }
+  ]
+}

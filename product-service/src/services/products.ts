@@ -1,7 +1,7 @@
 import { logger } from '@libs/logger';
 import { getProductsListData } from '../database/products';
 
-const data = require('./mockData.json');
+const data = require('../database/seeds/products.json');
 
 export const getProductsList = async () => {
   try {

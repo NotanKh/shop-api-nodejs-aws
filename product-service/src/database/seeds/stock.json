@@ -1,0 +1,112 @@
+{
+  "cloud_shop_stock": [
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "15"
+          },
+          "product_id": {
+            "S": "c1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "17"
+          },
+          "product_id": {
+            "S": "p1q2r3s4-t5u6-v7w8-x9y0-z1a2b3c4d5e6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "23"
+          },
+          "product_id": {
+            "S": "f1g2h3i4-j5k6-l7m8-n9o0-p1q2r3s4t5u6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "9"
+          },
+          "product_id": {
+            "S": "g1h2i3j4-k5l6-m7n8-o9p0-q1r2s3t4u5v6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "28"
+          },
+          "product_id": {
+            "S": "h1i2j3k4-l5m6-n7o8-p9q0-r1s2t3u4v5w6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "2"
+          },
+          "product_id": {
+            "S": "i1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "7"
+          },
+          "product_id": {
+            "S": "j1k2l3m4-n5o6-p7q8-r9s0-t1u2v3w4x5y6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "18"
+          },
+          "product_id": {
+            "S": "k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "count": {
+            "N": "30"
+          },
+          "product_id": {
+            "S": "l1m2n3o4-p5q6-r7s8-t9u0-v1w2x3y4z5a6"
+          }
+        }
+      }
+    }
+  ]
+}
