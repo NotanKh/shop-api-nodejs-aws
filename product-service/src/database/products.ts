@@ -2,7 +2,7 @@ import { ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { logger } from '@libs/logger';
 import { ddbDocClient } from './index';
 
-const { PRODUCTS_TABLE_NAME = 'products' } = process.env;
+const { PRODUCTS_TABLE_NAME } = process.env;
 
 export const getProductsListData = async () => {
   const commandOptions = {
