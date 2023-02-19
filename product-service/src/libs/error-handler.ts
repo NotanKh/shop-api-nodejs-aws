@@ -1,13 +1,15 @@
+import { ErrorCodes } from '@libs/constants';
+
 const ERROR_TYPES = {
   BaseError: 'BaseError',
 };
 
 export class BaseError extends Error {
-  public name;
+  name: string;
 
-  public code;
+  code: number;
 
-  constructor(error, code) {
+  constructor(error, { code }) {
     super(error.message || error);
     this.name = ERROR_TYPES.BaseError;
     this.code = code;
@@ -19,11 +21,11 @@ export class BaseError extends Error {
   }
 }
 
-export const handleError = (error, logger): void => {
+export const handleError = (error, logger, code = ErrorCodes.UNKNOWN): BaseError => {
   if (error.name === ERROR_TYPES.BaseError) {
-    throw error;
+    return error;
   }
   logger.error(error);
 
-  throw new BaseError(error, { code: 0 });
+  return new BaseError(error, { code });
 };

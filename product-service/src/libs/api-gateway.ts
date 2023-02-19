@@ -12,7 +12,7 @@ const AddOriginHeaders = (response) => ({
   },
 });
 
-export const formatJSONResponse = (response: Record<string, unknown>) => AddOriginHeaders({
+export const formatJSONResponse = (response: Record<string, unknown> | Record<string, unknown>[]) => AddOriginHeaders({
   statusCode: 200,
   body: JSON.stringify(response),
 });
