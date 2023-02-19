@@ -1,7 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import type { AWS } from '@serverless/typescript';
 
-import { getProductByIdFunction, getProductsFunction } from '@functions/index';
+import { getProductByIdFunction, getProductsFunction, createProductFunction } from '@functions/index';
 
 const serverlessConfiguration: AWS = {
   service: 'shop-product-service',
@@ -71,7 +71,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { getProductsFunction, getProductByIdFunction },
+  functions: { getProductsFunction, getProductByIdFunction, createProductFunction },
   package: { individually: true },
   custom: {
     esbuild: {

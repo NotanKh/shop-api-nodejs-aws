@@ -18,7 +18,7 @@ export const getStockListData = async () => {
   return data.Items as StockModel[];
 };
 
-export const putStockData = async (item: StockModel): Promise<StockModel> => {
+export const putStockData = async (item: StockModel): Promise<void> => {
   try {
     const commandOptions = {
       TableName: STOCK_TABLE_NAME,
@@ -26,8 +26,7 @@ export const putStockData = async (item: StockModel): Promise<StockModel> => {
     };
     const command = new PutCommand(commandOptions);
     const data = await ddbDocClient.send(command);
-    logger.debug('New stock item:', JSON.stringify(data));
-    return data.Attributes as StockModel;
+    logger.debug('New stock created:', JSON.stringify(data));
   } catch (error) {
     throw handleError(error, logger, ErrorCodes.DATABASE_ERROR);
   }

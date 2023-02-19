@@ -40,14 +40,13 @@ export const getProductById = async (id: string): Promise<ProductModel> => {
   }
 };
 
-export const createProduct = async ({ count, ...product }: CreateProductDTO): Promise<ProductStockModel> => {
+export const createProduct = async ({ count, ...product }: CreateProductDTO): Promise<void> => {
   try {
     const id = uuid();
     const productData: ProductModel = { ...product, id };
     const stockData: StockModel = { product_id: id, count };
-    const [createdProduct, createdStock] = await Promise.all([putProductData(productData), putStockData(stockData)]);
+    await Promise.all([putProductData(productData), putStockData(stockData)]);
     // TODO remove items, if one of operations was failed
-    return { ...createdProduct, count: createdStock.count };
   } catch (error) {
     throw handleError(error, logger);
   }

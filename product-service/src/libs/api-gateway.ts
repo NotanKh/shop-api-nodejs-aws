@@ -9,6 +9,7 @@ const AddOriginHeaders = (response) => ({
   headers: {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Credentials': true,
+    'content-type': 'application/json',
   },
 });
 

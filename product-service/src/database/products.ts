@@ -40,7 +40,7 @@ export const getProductByIdData = async (product_id: string): Promise<ProductMod
   }
 };
 
-export const putProductData = async (item: ProductModel): Promise<ProductModel> => {
+export const putProductData = async (item: ProductModel): Promise<void> => {
   try {
     const commandOptions = {
       TableName: PRODUCTS_TABLE_NAME,
@@ -48,8 +48,7 @@ export const putProductData = async (item: ProductModel): Promise<ProductModel> 
     };
     const command = new PutCommand(commandOptions);
     const data = await ddbDocClient.send(command);
-    logger.debug('New product item: ', JSON.stringify(data));
-    return data.Attributes as ProductModel;
+    logger.debug('New product created: ', JSON.stringify(data));
   } catch (error) {
     throw handleError(error, logger, ErrorCodes.DATABASE_ERROR);
   }

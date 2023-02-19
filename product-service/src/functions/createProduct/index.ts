@@ -1,5 +1,5 @@
 import { handlerPath } from '@libs/handler-resolver';
-import ProductDTO from './ProductSchema';
+import ProductSchema from './ProductSchema';
 
 export const createProductFunction = {
   handler: `${handlerPath(__dirname)}/handler.main`,
@@ -16,7 +16,7 @@ export const createProductFunction = {
         cors: true,
         request: {
           schemas: {
-            'application/json': ProductDTO,
+            'application/json': ProductSchema,
           },
         },
       },
