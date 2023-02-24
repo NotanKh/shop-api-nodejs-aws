@@ -51,3 +51,20 @@ export const createProduct = async ({ count, ...product }: CreateProductDTO): Pr
     throw handleError(error, logger);
   }
 };
+
+export const butchCreateProducts = async (products: CreateProductDTO[]): Promise<CreateProductDTO[]> => {
+  try {
+    const failedCreateProducts = [];
+    const creatingPromises = products.map(async (product) => {
+      try {
+        await createProduct(product);
+      } catch (error) {
+        failedCreateProducts.push({ data: product, error });
+      }
+    });
+    await Promise.all(creatingPromises);
+    return failedCreateProducts;
+  } catch (error) {
+    throw handleError(error, logger);
+  }
+};

@@ -18,6 +18,8 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
+      // FIXME put correct URL
+      SQS_URL: '',
     },
     iam: {
       role: {
@@ -30,6 +32,11 @@ const serverlessConfiguration: AWS = {
               's3:GetObject',
               's3:DeleteObject'],
             Resource: 'arn:aws:s3:::${self:custom.importBucketName}/*',
+          },
+          {
+            Effect: 'Allow',
+            Action: 'sqs:*',
+            Resource: 'arn:aws:sqs:us-east-1:515137188781:catalogItemsQueue',
           },
         ],
       },

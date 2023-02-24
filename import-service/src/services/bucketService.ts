@@ -14,8 +14,8 @@ import {
 } from '@services/constants';
 import { handleError } from '@libs/error-handler';
 import { s3Client } from '@libs/s3client';
-import { parse } from '@fast-csv/parse';
-import ReadableStream = NodeJS.ReadableStream;
+import { parse, parseStream } from '@fast-csv/parse';
+import { writeToQueue } from '@services/sqsService';
 
 export const getObjectsList = async () => {
   try {
@@ -92,17 +92,25 @@ const deleteObject = async (key: string): Promise<void> => {
   }
 };
 
+const processStreamRow = async (row) => {
+  try {
+    logger.info('Row:\t', row);
+    await writeToQueue(row);
+  } catch (error) {
+    logger.error(`An Error while processing row ${row}`, error);
+  }
+};
+
 export const parseObject = async (key: string): Promise<void> => {
   try {
-    const objectStream: ReadableStream = await getObjectStream(key);
-    await new Promise((resolve) => {
-      objectStream.pipe(parse({ headers: true }))
-        .on('error', (error) => {
-          logger.error(error);
-        })
-        .on('data', (row) => logger.info(row))
-        .on('end', (rowCount: number) => resolve(rowCount));
-    });
+    const objectStream = await getObjectStream(key) as NodeJS.ReadableStream;
+
+    objectStream.pipe(parse({ headers: true }));
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const row of parseStream(objectStream, { headers: true })) {
+      await processStreamRow(row);
+    }
+    logger.info('All rows parsed');
     await copyObject(key, key.replace(UPLOADED_PREFIX, PARSED_PREFIX));
     await deleteObject(key);
   } catch (error) {
