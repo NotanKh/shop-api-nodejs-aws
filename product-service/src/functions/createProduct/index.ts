@@ -1,6 +1,7 @@
 import { handlerPath } from '@libs/handler-resolver';
+import ProductSchema from './ProductSchema';
 
-export const getProductByIdFunction = {
+export const createProductFunction = {
   handler: `${handlerPath(__dirname)}/handler.main`,
   environment: {
     /* eslint-disable no-template-curly-in-string */
@@ -10,9 +11,14 @@ export const getProductByIdFunction = {
   events: [
     {
       http: {
-        method: 'get',
-        path: 'product/{id}',
+        method: 'post',
+        path: 'product',
         cors: true,
+        request: {
+          schemas: {
+            'application/json': ProductSchema,
+          },
+        },
       },
     },
   ],

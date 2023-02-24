@@ -9,10 +9,11 @@ const AddOriginHeaders = (response) => ({
   headers: {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Credentials': true,
+    'content-type': 'application/json',
   },
 });
 
-export const formatJSONResponse = (response: Record<string, unknown>) => AddOriginHeaders({
+export const formatJSONResponse = (response: Record<string, unknown> | Record<string, unknown>[]) => AddOriginHeaders({
   statusCode: 200,
   body: JSON.stringify(response),
 });
