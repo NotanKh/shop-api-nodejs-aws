@@ -18,8 +18,7 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
-      // FIXME put correct URL
-      SQS_URL: '',
+      SQS_URL: 'https://sqs.us-east-1.amazonaws.com/${aws:accountId}/catalogItemsQueue',
     },
     iam: {
       role: {
@@ -35,8 +34,13 @@ const serverlessConfiguration: AWS = {
           },
           {
             Effect: 'Allow',
+            Action: 'sqs:ListQueues',
+            Resource: 'arn:aws:sqs:us-east-1:${aws:accountId}:*',
+          },
+          {
+            Effect: 'Allow',
             Action: 'sqs:*',
-            Resource: 'arn:aws:sqs:us-east-1:515137188781:catalogItemsQueue',
+            Resource: 'arn:aws:sqs:us-east-1:${aws:accountId}:catalogItemsQueue',
           },
         ],
       },

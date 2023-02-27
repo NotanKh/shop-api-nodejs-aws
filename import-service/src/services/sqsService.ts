@@ -12,6 +12,6 @@ export const writeToQueue = async (data) => {
     logger.info(`Message ${commandOutput.MessageId} sent`);
   } catch (error) {
     // const { requestId, cfId, extendedRequestId } = error.$metadata;
-    logger.error('Send message failed', error);
+    logger.error('Send message failed', error, error.$metadata);
   }
 };

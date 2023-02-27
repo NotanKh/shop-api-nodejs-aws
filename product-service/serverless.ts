@@ -39,8 +39,8 @@ const serverlessConfiguration: AWS = {
             'dynamodb:DeleteItem',
           ],
           Resource: [
-            `arn:aws:dynamodb:\${self:provider.region}:${process.env.AWS_ACCOUNT_ID}:table/\${self:custom.productsTableName}`,
-            `arn:aws:dynamodb:\${self:provider.region}:${process.env.AWS_ACCOUNT_ID}:table/\${self:custom.stockTableName}`,
+            'arn:aws:dynamodb:${self:provider.region}:${aws:accountId}:table/${self:custom.productsTableName}',
+            'arn:aws:dynamodb:${self:provider.region}:${aws:accountId}:table/${self:custom.stockTableName}',
           ],
         },
         {

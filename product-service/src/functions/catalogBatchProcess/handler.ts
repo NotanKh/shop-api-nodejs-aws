@@ -5,7 +5,6 @@ import { CreateProductDTO } from '../../dto/createProductDTO';
 
 const catalogBatchProcess = async (event: SQSEvent) => {
   try {
-    logger.debug(event);
     const products = event.Records.map((record) => JSON.parse(record.body) as CreateProductDTO);
     const failedProducts = await butchCreateProducts(products);
     logger.info('Failed create products', JSON.stringify(failedProducts));
