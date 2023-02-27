@@ -52,18 +52,20 @@ export const createProduct = async ({ count, ...product }: CreateProductDTO): Pr
   }
 };
 
-export const butchCreateProducts = async (products: CreateProductDTO[]): Promise<CreateProductDTO[]> => {
+export const butchCreateProducts = async (products: CreateProductDTO[]): Promise<{ createdProducts: CreateProductDTO[], failedProducts: CreateProductDTO[] }> => {
   try {
-    const failedCreateProducts = [];
+    const createdProducts = [];
+    const failedProducts = [];
     const creatingPromises = products.map(async (product) => {
       try {
         await createProduct(product);
+        createdProducts.push(product);
       } catch (error) {
-        failedCreateProducts.push({ data: product, error });
+        failedProducts.push({ data: product, error });
       }
     });
     await Promise.all(creatingPromises);
-    return failedCreateProducts;
+    return { createdProducts, failedProducts };
   } catch (error) {
     throw handleError(error, logger);
   }
