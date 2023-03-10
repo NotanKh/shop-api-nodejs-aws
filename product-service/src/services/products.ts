@@ -2,12 +2,14 @@ import { logger } from '@libs/logger';
 import { handleError } from '@libs/error-handler';
 import { v4 as uuid } from 'uuid';
 import { NO_STOCK_COUNT } from '@libs/constants';
+import { ProductEventType, notifyProductsTopic } from '@services/snsService';
 import { getProductByIdData, getProductsListData, putProductData } from '../database/products';
 import { getStockListData, putStockData } from '../database/stock';
 import ProductModel from '../database/models/ProductModel';
 import StockModel from '../database/models/StockModel';
 import ProductStockModel from '../database/models/ProductStockModel';
 import { CreateProductDTO } from '../dto/createProductDTO';
+import { IProduct } from '../interfaces/Product';
 
 const joinProductsStock = (productsList: ProductModel[], stockList: StockModel[]): ProductStockModel[] => {
   const stockMap = new Map();
@@ -40,13 +42,31 @@ export const getProductById = async (id: string): Promise<ProductModel> => {
   }
 };
 
-export const createProduct = async ({ count, ...product }: CreateProductDTO): Promise<void> => {
+export const createProduct = async ({ count, ...product }: CreateProductDTO): Promise<IProduct> => {
   try {
     const id = uuid();
     const productData: ProductModel = { ...product, id };
     const stockData: StockModel = { product_id: id, count };
     await Promise.all([putProductData(productData), putStockData(stockData)]);
+    return { ...productData, count };
     // TODO remove items, if one of operations was failed
+  } catch (error) {
+    throw handleError(error, logger);
+  }
+};
+
+export const butchCreateProducts = async (products: CreateProductDTO[]): Promise<void> => {
+  try {
+    const creatingPromises = products.map(async (product) => {
+      try {
+        const data = await createProduct(product);
+        await notifyProductsTopic(data, ProductEventType.create);
+      } catch (error) {
+        const { message, code } = error;
+        await notifyProductsTopic({ product, error: { message, code } }, ProductEventType.error);
+      }
+    });
+    await Promise.all(creatingPromises);
   } catch (error) {
     throw handleError(error, logger);
   }
