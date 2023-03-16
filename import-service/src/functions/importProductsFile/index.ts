@@ -20,6 +20,14 @@ export default {
             },
           },
         },
+        authorizer: {
+          // eslint-disable-next-line no-template-curly-in-string
+          arn: 'arn:aws:lambda:${aws:region}:${aws:accountId}:function:authorization-service-dev-basicAuthorizer',
+          name: 'basicTokenAuthorizer',
+          resultTtlInSeconds: 0,
+          identitySource: 'method.request.header.Authorization',
+          type: 'token',
+        },
       },
     },
   ],
